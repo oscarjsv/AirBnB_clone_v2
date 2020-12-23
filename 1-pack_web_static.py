@@ -1,15 +1,15 @@
-#!/usr/bin/python3
-# Write a Fabric script that generates a .tgz archive from the contents of the web_static
-from datetime import datetime
+'''Fabric script'''
+
 from fabric.api import *
+from datetime import datetime
 
 
 def do_pack():
-    ''' do pack module '''
+    '''do pack module'''
 
-    file_name = 'web_static' +\
+    file_name = "web_static_" + \
         datetime.now().strftime("%Y%m%d%H%M%S") + ".tgz"
-    save_dir = 'versions/'
+    save_dir = "versions/"
 
     local("mkdir -p " + save_dir)
     chk = local("tar -cvzf {}{} web_static".format(save_dir, file_name))
