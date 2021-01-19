@@ -18,17 +18,20 @@ def hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def c(text):
+    ''' replace _ for space'''
     return "C " + text.replace('_', " ")
 
 
 @app.route('/python', defaults={'text': 'is cool'}, strict_slashes=False)
 @app.route('/python/<text>', strict_slashes=False)
 def p(text):
+    ''' defaul value for key url python'''
     return "Python " + text.replace('_', " ")
 
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def num(n):
+    ''' url if numb is a int'''
     return"{} is a number".format(n)
 
 
